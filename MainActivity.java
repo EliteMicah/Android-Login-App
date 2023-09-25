@@ -1,7 +1,7 @@
 package com.example.rebooked1;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,14 +15,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
     }
+
+
 
     /** Called when the user taps the button */
     public void sendMessage(View view) {
         Intent intent = new Intent(this, Activity_display_message.class);
         // alternative:  Bundle extras = new Bundle();
-        EditText editTextFirst = (EditText) findViewById(R.id.firstNameText);
-        EditText editTextLast = (EditText) findViewById(R.id.lastNameText);
+        EditText editTextFirst = findViewById(R.id.firstNameText);
+        EditText editTextLast = findViewById(R.id.lastNameText);
 
         String messageFirstName = editTextFirst.getText().toString();
         String messageLastName = editTextLast.getText().toString();
