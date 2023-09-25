@@ -18,7 +18,7 @@ public class Activity_display_message extends AppCompatActivity {
         String messageLastName = intent.getStringExtra(MainActivity.EXTRA_MESSAGE_LAST);
 
         // Create a welcome message
-        String welcomeMessage = "The following contact has been added: \n" + messageFirstName + " " + messageLastName + "!";
+        String welcomeMessage = "The following contact has been added!\n" + messageFirstName + " " + messageLastName + "!";
 
         // Display the welcome message in a TextView or another UI element
         TextView textViewWelcome = findViewById(R.id.contactAddedText);
