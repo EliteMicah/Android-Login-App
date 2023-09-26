@@ -5,9 +5,14 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 public class Activity_display_message extends AppCompatActivity {
+
+    //OnOptionsItemsSelected()
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +21,8 @@ public class Activity_display_message extends AppCompatActivity {
 
         androidx.appcompat.widget.Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        // Retrieve the first and last names from the intent
         Intent intent = getIntent();
         String messageFirstName = intent.getStringExtra(MainActivity.EXTRA_MESSAGE_FIRST);
         String messageLastName = intent.getStringExtra(MainActivity.EXTRA_MESSAGE_LAST);
@@ -28,5 +33,20 @@ public class Activity_display_message extends AppCompatActivity {
         // Display the welcome message in a TextView or another UI element
         TextView textViewWelcome = findViewById(R.id.contactAddedText);
         textViewWelcome.setText(welcomeMessage);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }
