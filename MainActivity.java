@@ -20,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
     }
 
-
-
     /** Called when the user taps the button */
     public void sendMessage(View view) {
         Intent intent = new Intent(this, Activity_display_message.class);
